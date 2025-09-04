@@ -1,4 +1,4 @@
-import type { HeaderConfig } from "../../packages/shared-components/src/components/Header"
+import type { HeaderConfig } from "../../packages/shared/components/src/components/Header"
 
 // App-specific header configuration
 export const headerConfig: HeaderConfig = {

@@ -1,4 +1,4 @@
-import { Button } from "../../../shared-ui/src/components/Button"
+import { Button } from "@/lib/components/Button"
 
 export interface CTAAction {
   label: string

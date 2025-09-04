@@ -1,4 +1,4 @@
-import { Card, CardContent } from "../../../shared-ui/src/components/Card"
+import { Card, CardContent } from "@/lib/components/Card"
 
 export interface Testimonial {
   quote: string

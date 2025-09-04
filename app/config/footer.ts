@@ -1,4 +1,4 @@
-import type { FooterConfig } from "../../packages/shared-components/src/components/Footer"
+import type { FooterConfig } from "../../packages/shared/components/src/components/Footer"
 
 // App-specific footer configuration
 export const footerConfig: FooterConfig = {

@@ -1,4 +1,4 @@
-import { CTAConfig } from "../../packages/shared-components/src/components/CTASection"
+import { CTAConfig } from "../../packages/shared/components/src/components/CTASection"
 
 export const ctaConfig: CTAConfig = {
   title: "Ready to transform your business?",

@@ -1,6 +1,6 @@
-import { Button } from "../../../shared-ui/src/components/Button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../../../shared-ui/src/components/Card"
-import { Badge } from "../../../shared-ui/src/components/Badge"
+import { Button } from "@/lib/components/Button"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/lib/components/Card"
+import { Badge } from "@/lib/components/Badge"
 
 export interface PricingPlan {
   name: string
