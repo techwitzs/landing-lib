@@ -1,0 +1,33 @@
+{
+  "name": "@core-landing/shared-components",
+  "version": "0.1.0",
+  "description": "Shared business logic components for landing pages",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "exports": {
+    ".": {
+      "import": "./src/index.ts",
+      "require": "./src/index.ts"
+    }
+  },
+  "scripts": {
+    "build": "echo 'Build script for shared-components'",
+    "dev": "echo 'Dev script for shared-components'",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@core-landing/shared-utils": "workspace:*",
+    "@core-landing/shared-ui": "workspace:*",
+    "lucide-react": "^0.454.0"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0",
+    "next": ">=15.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "typescript": "^5"
+  }
+}
