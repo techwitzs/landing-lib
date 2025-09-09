@@ -7,7 +7,7 @@ import {
   TestimonialsSection, 
   CTASection, 
   Footer 
-} from "../packages/shared/components/src/components"
+} from "../lib/shared/components/src/components"
 import { headerConfig } from "./config/header"
 import { footerConfig } from "./config/footer"
 import { heroConfig } from "./config/hero"

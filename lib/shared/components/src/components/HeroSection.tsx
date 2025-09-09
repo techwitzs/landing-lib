@@ -1,5 +1,5 @@
-import { Button } from "@/lib/components/Button"
-import { Badge } from "@/lib/components/Badge"
+import { Button } from "../../../ui/src/components/Button"
+import { Badge } from "../../../ui/src/components/Badge"
 
 export interface HeroAction {
   label: string

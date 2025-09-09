@@ -20,10 +20,10 @@
     ],
     "paths": {
       "@/*": ["./*"],
-      "@core-landing/shared-utils": ["./packages/shared-utils/src/index.ts"],
-      "@core-landing/shared-utils/*": ["./packages/shared-utils/src/*"],
-      "@core-landing/shared-ui": ["./packages/shared-ui/src/index.ts"],
-      "@core-landing/shared-ui/*": ["./packages/shared-ui/src/*"]
+      "@core-landing/shared-utils": ["./lib/shared/utils/src/index.ts"],
+      "@core-landing/shared-utils/*": ["./lib/shared/utils/src/*"],
+      "@core-landing/shared-ui": ["./lib/shared/ui/src/index.ts"],
+      "@core-landing/shared-ui/*": ["./lib/shared/ui/src/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

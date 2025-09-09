@@ -1,4 +1,4 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/lib/components/Card"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../../../ui/src/components/Card"
 
 export interface Feature {
   title: string

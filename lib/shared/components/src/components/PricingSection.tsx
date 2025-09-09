@@ -1,6 +1,6 @@
-import { Button } from "@/lib/components/Button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/lib/components/Card"
-import { Badge } from "@/lib/components/Badge"
+import { Button } from "../../../ui/src/components/Button"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../../../ui/src/components/Card"
+import { Badge } from "../../../ui/src/components/Badge"
 
 export interface PricingPlan {
   name: string
