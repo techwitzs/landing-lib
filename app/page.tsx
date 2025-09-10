@@ -10,7 +10,7 @@ import {
   CTASection, 
   Footer 
 } from "../lib/shared/components/src/components"
-import { getTheme } from "../lib/styles/theme"
+import { getAppTheme } from "./lib/theme"
 import { headerConfig } from "./config/header"
 import { footerConfig } from "./config/footer"
 import { heroConfig } from "./config/hero"
@@ -21,7 +21,7 @@ import { testimonialsConfig } from "./config/testimonials"
 import { ctaConfig } from "./config/cta"
 
 export default function HomePage() {
-  const theme = getTheme('light')
+  const theme = getAppTheme('light')
   
   const containerStyles = {
     minHeight: '100vh',
