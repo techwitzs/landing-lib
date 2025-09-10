@@ -1,4 +1,4 @@
-import { TestimonialsConfig } from "../../packages/shared/components/src/components/TestimonialsSection"
+import { TestimonialsConfig } from "../../lib/shared/components/src/components/TestimonialsSection"
 
 export const testimonialsConfig: TestimonialsConfig = {
   section: {

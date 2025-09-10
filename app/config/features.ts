@@ -1,4 +1,4 @@
-import { FeaturesConfig } from "../../packages/shared/components/src/components/FeaturesSection"
+import { FeaturesConfig } from "../../lib/shared/components/src/components/FeaturesSection"
 
 export const featuresConfig: FeaturesConfig = {
   section: {

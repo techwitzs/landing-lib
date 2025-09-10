@@ -1,4 +1,4 @@
-import { PricingConfig } from "../../packages/shared/components/src/components/PricingSection"
+import { PricingConfig } from "../../lib/shared/components/src/components/PricingSection"
 
 export const pricingConfig: PricingConfig = {
   section: {

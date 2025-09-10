@@ -1,4 +1,6 @@
+import React from "react"
 import { Button } from "../../../ui/src/components/Button"
+import { useStyles } from "../../../../hooks/useStyles"
 
 export interface NavLink {
   label: string
@@ -22,35 +24,117 @@ export interface HeaderProps {
 }
 
 export function Header({ config }: HeaderProps) {
+  const { theme, container } = useStyles()
+  
+  // Header styles
+  const headerStyles: React.CSSProperties = {
+    position: 'sticky',
+    top: 0,
+    zIndex: 50,
+    width: '100%',
+    borderBottom: `1px solid ${theme.colors.border}`,
+    backgroundColor: `oklch(from ${theme.colors.background} l c h / 0.95)`,
+    backdropFilter: 'blur(8px)',
+  }
+  
+  // Container styles
+  const containerStyles: React.CSSProperties = {
+    ...container(),
+    display: 'flex',
+    height: '64px', // h-16
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  }
+  
+  // Brand section styles
+  const brandStyles: React.CSSProperties = {
+    display: 'flex',
+    alignItems: 'center',
+    gap: theme.spacing.xs,
+  }
+  
+  // Logo styles
+  const logoStyles: React.CSSProperties = {
+    height: '32px',
+    width: '32px',
+    borderRadius: theme.borders.radius.lg,
+    backgroundColor: theme.colors.accent,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  }
+  
+  // Logo text styles
+  const logoTextStyles: React.CSSProperties = {
+    color: theme.colors.background, // accent-foreground equivalent
+    fontWeight: theme.typography.fontWeight.bold,
+    fontSize: theme.typography.fontSize.lg,
+  }
+  
+  // Brand name styles
+  const brandNameStyles: React.CSSProperties = {
+    fontWeight: theme.typography.fontWeight.bold,
+    fontSize: theme.typography.fontSize.xl,
+    color: theme.colors.foreground,
+  }
+  
+  // Navigation styles (simplified - we'll show on desktop by default)
+  const navStyles: React.CSSProperties = {
+    display: 'flex',
+    alignItems: 'center',
+    gap: theme.spacing['2xl'],
+  }
+  
+  // Navigation link styles
+  const navLinkStyles: React.CSSProperties = {
+    fontSize: theme.typography.fontSize.sm,
+    fontWeight: theme.typography.fontWeight.medium,
+    color: theme.colors.foreground,
+    textDecoration: 'none',
+    transition: 'color 0.2s ease-in-out',
+  }
+  
+  // Actions container styles
+  const actionsStyles: React.CSSProperties = {
+    display: 'flex',
+    alignItems: 'center',
+    gap: theme.spacing.lg,
+  }
+  
+  // CTA button additional styles
+  const ctaButtonStyles: React.CSSProperties = {
+    backgroundColor: theme.colors.accent,
+  }
+
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center justify-between">
-        <div className="flex items-center space-x-2">
-          <div className="h-8 w-8 rounded-lg bg-accent flex items-center justify-center">
-            <span className="text-accent-foreground font-bold text-lg">
+    <header style={headerStyles}>
+      <div style={containerStyles}>
+        <div style={brandStyles}>
+          <div style={logoStyles}>
+            <span style={logoTextStyles}>
               {config.brand.logo || config.brand.name.charAt(0)}
             </span>
           </div>
-          <span className="font-bold text-xl">{config.brand.name}</span>
+          <span style={brandNameStyles}>{config.brand.name}</span>
         </div>
 
-        <nav className="hidden md:flex items-center space-x-8">
+        <nav style={navStyles}>
           {config.navigation.map((link, index) => (
             <a 
               key={index}
               href={link.href} 
-              className="text-sm font-medium hover:text-accent transition-colors"
+              style={navLinkStyles}
             >
               {link.label}
             </a>
           ))}
         </nav>
 
-        <div className="flex items-center space-x-4">
+        <div style={actionsStyles}>
           <Button variant="ghost" size="sm">
             {config.actions.signin}
           </Button>
-          <Button size="sm" className="bg-accent hover:bg-accent/90">
+          <Button size="sm" style={ctaButtonStyles}>
             {config.actions.cta}
           </Button>
         </div>

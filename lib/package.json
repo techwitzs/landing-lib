@@ -1,0 +1,54 @@
+{
+  "name": "@landing-lib/core",
+  "version": "1.0.0",
+  "description": "Core config-driven styling system and components",
+  "main": "styles/index.js",
+  "types": "styles/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./styles/index.d.ts",
+      "import": "./styles/index.js",
+      "require": "./styles/index.js"
+    },
+    "./styles": {
+      "types": "./styles/index.d.ts", 
+      "import": "./styles/index.js",
+      "require": "./styles/index.js"
+    },
+    "./hooks": {
+      "types": "./hooks/index.d.ts",
+      "import": "./hooks/index.js", 
+      "require": "./hooks/index.js"
+    }
+  },
+  "files": [
+    "styles",
+    "hooks",
+    "shared"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "@types/react": ">=18.0.0",
+    "@radix-ui/react-slot": "^1.0.0"
+  },
+  "devDependencies": {
+    "react": "^19.0.0",
+    "@types/react": "^18.3.0",
+    "@radix-ui/react-slot": "^1.1.0",
+    "typescript": "^5.0.0"
+  },
+  "keywords": [
+    "react",
+    "styling",
+    "design-system",
+    "config-driven",
+    "typescript"
+  ],
+  "author": "Landing Lib",
+  "license": "MIT"
+}

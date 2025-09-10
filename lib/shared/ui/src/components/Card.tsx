@@ -1,82 +1,165 @@
 import * as React from "react"
-import { cn } from "../../../utils/src/helpers"
+import { useStyles, type StyleVariant } from "../../../../styles"
 
-function Card({ className, ...props }: React.ComponentProps<"div">) {
+// Card-specific variant types
+export type CardVariant = 'default' | 'elevated' | 'outlined' | 'filled'
+
+interface CardProps extends Omit<React.ComponentProps<"div">, 'style'> {
+  variant?: CardVariant
+  style?: React.CSSProperties
+}
+
+function Card({ 
+  variant = "default", 
+  style,
+  children,
+  ...props 
+}: CardProps) {
+  const { card } = useStyles()
+  
+  // Generate styles based on variant
+  const cardStyles = card.root()
+  
+  // Merge with any additional inline styles
+  const combinedStyles = style ? { ...cardStyles, ...style } : cardStyles
+
   return (
     <div
       data-slot="card"
-      className={cn(
-        "bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm",
-        className
-      )}
+      style={combinedStyles}
       {...props}
-    />
+    >
+      {children}
+    </div>
   )
 }
 
-function CardHeader({ className, ...props }: React.ComponentProps<"div">) {
+interface CardSubComponentProps extends Omit<React.ComponentProps<"div">, 'style'> {
+  style?: React.CSSProperties
+}
+
+function CardHeader({ style, children, ...props }: CardSubComponentProps) {
+  const { theme } = useStyles()
+  
+  const headerStyles: React.CSSProperties = {
+    display: 'grid',
+    gridTemplateRows: 'auto auto',
+    gridTemplateColumns: '1fr auto',
+    alignItems: 'start',
+    gap: theme.spacing.xs,
+    padding: `0 ${theme.spacing.lg}`,
+    ...(style || {})
+  }
+
   return (
     <div
       data-slot="card-header"
-      className={cn(
-        "@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6",
-        className
-      )}
+      style={headerStyles}
       {...props}
-    />
+    >
+      {children}
+    </div>
   )
 }
 
-function CardTitle({ className, ...props }: React.ComponentProps<"div">) {
+function CardTitle({ style, children, ...props }: CardSubComponentProps) {
+  const { theme } = useStyles()
+  
+  const titleStyles: React.CSSProperties = {
+    lineHeight: 1,
+    fontWeight: theme.typography.fontWeight.semibold,
+    fontSize: theme.typography.fontSize.base,
+    ...(style || {})
+  }
+
   return (
     <div
       data-slot="card-title"
-      className={cn("leading-none font-semibold", className)}
+      style={titleStyles}
       {...props}
-    />
+    >
+      {children}
+    </div>
   )
 }
 
-function CardDescription({ className, ...props }: React.ComponentProps<"div">) {
+function CardDescription({ style, children, ...props }: CardSubComponentProps) {
+  const { theme } = useStyles()
+  
+  const descriptionStyles: React.CSSProperties = {
+    color: theme.colors.muted,
+    fontSize: theme.typography.fontSize.sm,
+    ...(style || {})
+  }
+
   return (
     <div
       data-slot="card-description"
-      className={cn("text-muted-foreground text-sm", className)}
+      style={descriptionStyles}
       {...props}
-    />
+    >
+      {children}
+    </div>
   )
 }
 
-function CardAction({ className, ...props }: React.ComponentProps<"div">) {
+function CardAction({ style, children, ...props }: CardSubComponentProps) {
+  const actionStyles: React.CSSProperties = {
+    gridColumn: 2,
+    gridRow: '1 / span 2',
+    justifySelf: 'end',
+    alignSelf: 'start',
+    ...(style || {})
+  }
+
   return (
     <div
       data-slot="card-action"
-      className={cn(
-        "col-start-2 row-span-2 row-start-1 self-start justify-self-end",
-        className
-      )}
+      style={actionStyles}
       {...props}
-    />
+    >
+      {children}
+    </div>
   )
 }
 
-function CardContent({ className, ...props }: React.ComponentProps<"div">) {
+function CardContent({ style, children, ...props }: CardSubComponentProps) {
+  const { theme } = useStyles()
+  
+  const contentStyles: React.CSSProperties = {
+    padding: `0 ${theme.spacing.lg}`,
+    ...(style || {})
+  }
+
   return (
     <div
       data-slot="card-content"
-      className={cn("px-6", className)}
+      style={contentStyles}
       {...props}
-    />
+    >
+      {children}
+    </div>
   )
 }
 
-function CardFooter({ className, ...props }: React.ComponentProps<"div">) {
+function CardFooter({ style, children, ...props }: CardSubComponentProps) {
+  const { theme } = useStyles()
+  
+  const footerStyles: React.CSSProperties = {
+    display: 'flex',
+    alignItems: 'center',
+    padding: `0 ${theme.spacing.lg}`,
+    ...(style || {})
+  }
+
   return (
     <div
       data-slot="card-footer"
-      className={cn("flex items-center px-6 [.border-t]:pt-6", className)}
+      style={footerStyles}
       {...props}
-    />
+    >
+      {children}
+    </div>
   )
 }
 
@@ -88,4 +171,9 @@ export {
   CardAction,
   CardDescription,
   CardContent,
+}
+
+export type { 
+  CardProps, 
+  CardSubComponentProps 
 }

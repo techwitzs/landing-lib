@@ -1,4 +1,4 @@
-import { HeroConfig } from "../../packages/shared/components/src/components/HeroSection"
+import { HeroConfig } from "../../lib/shared/components/src/components/HeroSection"
 
 export const heroConfig: HeroConfig = {
   badge: {
